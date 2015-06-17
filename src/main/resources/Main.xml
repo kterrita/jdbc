@@ -26,4 +26,9 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
+    <bean id="spitterDAO"
+          class="com.beleychev.JdbcTemplateSpitterDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
 </beans>
