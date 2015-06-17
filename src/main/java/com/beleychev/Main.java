@@ -3,8 +3,6 @@ package com.beleychev;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.sql.*;
-
 /**
  * Created by ilya on 16.06.2015.
  */
