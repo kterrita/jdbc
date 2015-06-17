@@ -12,7 +12,7 @@ public class Main {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "root";
+    static final String PASS = "k2904o1987k";
     public static void main(String[] args) {
         Connection connection = null;
         Statement statement = null;
@@ -28,14 +28,14 @@ public class Main {
             String sql = "SELECT id, name, age, email FROM Student";
             ResultSet rs = statement.executeQuery(sql);
 
-            //Извлечение данных
+            //Getting data
             while (rs.next()) {
                 int id = rs.getInt("id");
                 int age = rs.getInt("age");
                 String name = rs.getString("name");
                 String email = rs.getString("email");
 
-                //Отображение извлеченных данных
+                //Display
                 System.out.print("ID: " + id);
                 System.out.print(", Age: " + age);
                 System.out.print(", Name: " + name);
