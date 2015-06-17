@@ -9,12 +9,11 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 public class JdbcTemplateSpitterDAO implements SpitterDAO {
 
 
-    private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, update_by_email) values (?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT_SPITTER = "insert into spitter (username, password, fullname, email, updateByEmail) values (?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE_SPITTER = "update spitter set username = ?, password = ?, fullname = ?, set email=?"
             + "where id = ?";
@@ -60,7 +59,6 @@ public class JdbcTemplateSpitterDAO implements SpitterDAO {
                 spitter.getFullName(),
                 spitter.getEmail(),
                 spitter.isUpdateByEmail());
-        spitter.setId(queryForIdentity());
     }
     //<end id="java_addSpitter" />
 
@@ -82,13 +80,6 @@ public class JdbcTemplateSpitterDAO implements SpitterDAO {
         // TODO Auto-generated method stub
 
     }
-
-
-    //<start id="java_queryForIdentity" />
-    private long queryForIdentity() {
-        return jdbcTemplate.queryForLong("call identity()");
-    }
-    //<end id="java_queryForIdentity" />
 
     public List<Spittle> getSpittlesForSpitter(
             Spitter spitter) {

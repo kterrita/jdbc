@@ -78,8 +78,27 @@ public class Spitter {
     }
 
     @Override
+    public String toString() {
+        return "Spitter{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", spittles=" + spittles +
+                ", email='" + email + '\'' +
+                ", updateByEmail=" + updateByEmail +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
-        // TODO Auto-generated method stub
-        return super.hashCode();
+        int result = id.hashCode();
+        result = 31 * result + username.hashCode();
+        result = 31 * result + password.hashCode();
+        result = 31 * result + fullName.hashCode();
+        result = 31 * result + (spittles != null ? spittles.hashCode() : 0);
+        result = 31 * result + email.hashCode();
+        result = 31 * result + (updateByEmail ? 1 : 0);
+        return result;
     }
 }
