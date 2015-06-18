@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by ilya on 17.06.15.
  */
 @Repository
+@Transactional
 public class HibernateSpitterDAO implements SpitterDAO {
     private SessionFactory sessionFactory;
 
@@ -18,19 +20,19 @@ public class HibernateSpitterDAO implements SpitterDAO {
     public HibernateSpitterDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory; //Construct DAO
     }
-
+    @Transactional
     private Session currentSession() {
         return sessionFactory.getCurrentSession();
     }
-
+    @Transactional
     public void addSpitter(Spitter spitter) {
         currentSession().save(spitter);
     }
-
+    @Transactional
     public void saveSpitter(Spitter spitter) {
         currentSession().update(spitter);
     }
-
+    @Transactional
     public Spitter getSpitterById(long id) {
         return (Spitter) currentSession().get(Spitter.class, id);
     }
